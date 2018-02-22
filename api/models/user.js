@@ -10,11 +10,6 @@ module.exports = {
 
   attributes: {
 
-    idusuario:{
-      required:false
-
-    },
-
     createdAt:false,
 
     updatedAt:false,
