@@ -14,12 +14,14 @@ module.exports = {
         console.log("entre a funcion");
 
             user.create({
-    
+
                 nombre: req.param('nombre'),
-                email: req.param('email'),
-                carnet: req.param('carnet'),
+                apellido: req.param('apellido'),
                 cedula: req.param('cedula'),
-                contraseña: req.param('contraseña')
+                carnet: req.param('carnet'),
+                correo: req.param('correo'),
+                NroTlfn: req.param('NroTlfn'),
+                
 
             }).exec( function (err, user) {
 

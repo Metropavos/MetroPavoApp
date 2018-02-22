@@ -6,19 +6,33 @@
  */
 
 module.exports = {
-  
+ 
 
   attributes: {
+
+    idusuario:{
+      required:false
+
+    },
+
+    createdAt:false,
+
+    updatedAt:false,
 
     nombre:{
       type:'string',
       required: true
     },
 
-    email:{
-      type:'email',
+    apellido:{
+      type:'string',
+      required: true
+    },
+
+    cedula:{
+      type:'int',
       required: true,
-      unique: true 
+      unique: true
     },
 
     carnet:{
@@ -27,15 +41,18 @@ module.exports = {
       unique: true
     },
 
-    cedula:{
+    correo:{
+      type:'email',
+      required: true,
+      unique: true 
+    },
+
+    NroTlfn:{
       type:'int',
       required: true,
       unique: true
     },
-    contraseña:{
-      type:'string',
-      required: true
-    }
+
   }
 };
 
