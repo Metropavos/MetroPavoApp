@@ -7,12 +7,19 @@
 
 module.exports = {
  
+  createdAt:false,
+  updatedAt:false,
+  
 
   attributes: {
 
-    createdAt:false,
-
-    updatedAt:false,
+    idusuario: {
+      type: 'integer',
+      required:false,
+      autoIncrement: true,
+      primaryKey: true,
+      unique: true
+    },
 
     nombre:{
       type:'string',

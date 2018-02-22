@@ -24,10 +24,15 @@
     "sails-disk": "~0.10.9",
     "sails-mysql": "^0.11.5"
   },
+  
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "sails lift"
   },
+
+  "engines": {
+        "node":"8.9.4"
+    },
   "main": "app.js",
   "repository": {
     "type": "git",

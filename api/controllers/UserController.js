@@ -15,13 +15,13 @@ module.exports = {
 
             user.create({
 
+                idusuario: req.param('id'),
                 nombre: req.param('nombre'),
                 apellido: req.param('apellido'),
                 cedula: req.param('cedula'),
                 carnet: req.param('carnet'),
                 correo: req.param('correo'),
                 NroTlfn: req.param('NroTlfn'),
-                
 
             }).exec( function (err, user) {
 
