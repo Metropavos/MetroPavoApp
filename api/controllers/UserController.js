@@ -21,7 +21,7 @@ module.exports = {
                 cedula: req.param('cedula'),
                 carnet: req.param('carnet'),
                 correo: req.param('correo'),
-                NroTlfn: req.param('NroTlfn'),
+                sexo: req.param('sexo'),
 
             }).exec( function (err, user) {
 

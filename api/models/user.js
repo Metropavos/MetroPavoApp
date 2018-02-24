@@ -38,7 +38,7 @@ module.exports = {
     },
 
     carnet:{
-      type:'int',
+      type:'integer',
       required: true,
       unique: true
     },
@@ -49,9 +49,15 @@ module.exports = {
       unique: true 
     },
 
-    NroTlfn:{
-      type:'int',
+    sexo:{
+      type:'string',
       required: true,
+      unique: true
+    },
+
+    FechaNacimiento :{
+      type:'string',
+      required: false,
       unique: true
     },
 

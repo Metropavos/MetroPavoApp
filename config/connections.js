@@ -43,10 +43,10 @@ module.exports.connections = {
   
     metropavoapp: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'metropavoapp', //optional
-    password: 'metropavoapp', //optional
-    database: 'metropavoapp' //optional
+    host: 'sql2.freemysqlhosting.net',
+    user: 'sql2222565', //optional
+    password: 'yA8*iX9%', //optional
+    database: 'sql2222565' //optional
   },
 
   /***************************************************************************
