@@ -1,5 +1,5 @@
 /**
- * Profesor.js
+ * Horario.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,14 +8,14 @@
 module.exports = {
 
   connection: ' metropavoapp',
-  tableName: 'profesor',
+  tableName: 'horario',
 
   createdAt:false,
   updatedAt:false,
 
   attributes: {
 
-    idProfesor: {
+    idHorario: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -24,38 +24,26 @@ module.exports = {
       maxLength: 11
     },
 
-    profesion:{
+  dia:{
       type:'string',
       required: true,
-      size: 25
+      size: 15
     },
-
-    FechaNacimiento :{
+  
+  hora:{
       type:'string',
-      required: false,
-      unique: true
-    },
+      required: true,
+      size: 15
+    },   
+    
+/*Colecciones*/ 
 
-    /*Colecciones*/
+/* Referencia seccion - horario (N - M) */     
 
-    /* Referencia departamento - profesor (1 - N) */
-
-    adscrito: {
-      model: 'departamento'
-    },
-
-    /* Referencia seccion - profesor  (N - 1) */  
-
-    secciones: {
-      collection: 'seccion',
-      via: 'adscrito'
-    },
-
-    /*Herencia*/
-
-    attachedTo:{
-      model: 'user',
-    }
+secciones: {
+  collection: 'seccion',
+  via: 'horarios'
+  },   
 
   }
 };

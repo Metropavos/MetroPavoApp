@@ -1,5 +1,5 @@
 /**
- * Profesor.js
+ * Beca.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -7,15 +7,15 @@
 
 module.exports = {
 
+
   connection: ' metropavoapp',
-  tableName: 'profesor',
+  tableName: 'beca',
 
   createdAt:false,
   updatedAt:false,
 
   attributes: {
-
-    idProfesor: {
+    idBeca: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -24,38 +24,26 @@ module.exports = {
       maxLength: 11
     },
 
-    profesion:{
+  tipo:{
       type:'string',
       required: true,
-      size: 25
+      size: 20
     },
-
-    FechaNacimiento :{
-      type:'string',
-      required: false,
-      unique: true
+  
+  porcentaje:{
+      type:'int',
+      required: true,
+      maxLenght: 3
     },
+    
+/*Colecciones*/ 
 
-    /*Colecciones*/
+/* Referencia estudiante - beca (1 - 1) */     
 
-    /* Referencia departamento - profesor (1 - N) */
-
-    adscrito: {
-      model: 'departamento'
-    },
-
-    /* Referencia seccion - profesor  (N - 1) */  
-
-    secciones: {
-      collection: 'seccion',
-      via: 'adscrito'
-    },
-
-    /*Herencia*/
-
-    attachedTo:{
-      model: 'user',
-    }
+becado: {
+  model: 'estudiante',
+  unique: true
+  },   
 
   }
 };

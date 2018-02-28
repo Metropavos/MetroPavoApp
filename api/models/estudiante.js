@@ -7,62 +7,59 @@
 
 module.exports = {
 
-  attributes: {
+  connection: ' metropavoapp',
+  tableName: 'estudiante',
 
-    idusuario: {
+  createdAt:false,
+  updatedAt:false,
+
+  attributes: {
+    
+    idEstudiante: {
       type: 'integer',
       required:false,
       autoIncrement: true,
       primaryKey: true,
-      unique: true
+      unique: true,
+      maxLength: 11
     },
 
-    nombre:{
-      type:'string',
-      required: true
-    },
-
-    apellido:{
-      type:'string',
-      required: true
-    },
-
-    cedula:{
-      type:'int',
+    tipo: {
+      type: 'string',
       required: true,
-      unique: true
-    },
-
-    carnet:{
-      type:'integer',
-      required: true,
-      unique: true
-    },
-
-    correo:{
-      type:'email',
-      required: true,
-      unique: true 
-    },
-
-    sexo:{
-      type:'string',
-      required: true,
-      unique: true
-    },
-
-    FechaNacimiento :{
-      type:'string',
-      required: false,
-      unique: true
+      size: 15
     },
 
     /*Colecciones*/
 
-    sección: {
+    /* Referencia periodo - estudiante (N - M) */
 
-      type:'colections',
-      via:'pertenece'
+    periodos: {
+      collection: 'periodo',
+      via: 'estudiantes',
+      dominant: true
+    },
+
+    /*  Referencia seccion - estudiante (N - M)*/
+    
+    secciones: {
+      collection: 'seccion',
+      via: 'estudiantes',
+      dominant: true
+    },
+
+    /*  Referencia seleccion - estudiante (N - M)*/
+    
+    selecciones: {
+      collection: 'seleccion',
+      via: 'integrantes'
+    },
+
+    /*  Referencia beca - estudiante (N - M)*/
+    
+    beca: {
+      collection: 'beca',
+      via: 'becado'
     },
 
     /*Herencia*/

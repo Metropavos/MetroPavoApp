@@ -1,5 +1,5 @@
 /**
- * Profesor.js
+ * Aula.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -7,15 +7,16 @@
 
 module.exports = {
 
+
   connection: ' metropavoapp',
-  tableName: 'profesor',
+  tableName: 'aula',
 
   createdAt:false,
   updatedAt:false,
 
   attributes: {
 
-    idProfesor: {
+    idAula: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -24,38 +25,32 @@ module.exports = {
       maxLength: 11
     },
 
-    profesion:{
+  edificio:{
       type:'string',
       required: true,
-      size: 25
+      size: 5
     },
-
-    FechaNacimiento :{
+  
+  piso:{
       type:'string',
-      required: false,
-      unique: true
+      required: true,
+      size: 3
     },
+  
+  numero:{
+      type:'int',
+      required: true,
+      maxLength: 3
+    },  
+    
+/*Colecciones*/ 
 
-    /*Colecciones*/
+/* Referencia seccion - aula (N - 1) */     
 
-    /* Referencia departamento - profesor (1 - N) */
-
-    adscrito: {
-      model: 'departamento'
-    },
-
-    /* Referencia seccion - profesor  (N - 1) */  
-
-    secciones: {
-      collection: 'seccion',
-      via: 'adscrito'
-    },
-
-    /*Herencia*/
-
-    attachedTo:{
-      model: 'user',
-    }
+clases: {
+  collection: 'seccion',
+  via: 'salon'
+},
 
   }
 };
