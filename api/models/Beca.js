@@ -1,5 +1,5 @@
 /**
- * Carrera.js
+ * Beca.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -7,13 +7,11 @@
 
 module.exports = {
 
-
   createdAt:false,
   updatedAt:false,
 
-
   attributes: {
-    idAula: {
+    idBeca: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -22,40 +20,27 @@ module.exports = {
       maxLength: 11
     },
 
-  edificio:{
+  tipo:{
       type:'string',
       required: true,
-      size: 5
+      size: 20
     },
   
-  piso:{
-      type:'string',
-      required: true,
-      size: 3
-    },
-  
-  numero:{
+  porcentaje:{
       type:'int',
       required: true,
-      maxLength: 3
-    },  
+      maxLenght: 3
+    },
     
 /*Colecciones*/ 
 
-/*  Referencia estudiante - carrera (N - M)*/ 
+/* Referencia estudiante - beca (1 - 1) */     
 
-estudiantes: {
-  collection: 'estudiante',
-  via: 'carreras',
-  dominant: true
-},
-/*  Referencia materia - carrera (N - M)*/ 
+becado: {
+  model: 'estudiante',
+  unique: true
+  },   
 
-materias: {
-  collection: 'materia',
-  via: 'carreras',
-  dominant: true
-},   
   }
 };
 

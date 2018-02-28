@@ -1,5 +1,5 @@
 /**
- * Materia.js
+ * Seleccion.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -7,13 +7,12 @@
 
 module.exports = {
 
-
   createdAt:false,
   updatedAt:false,
 
   attributes: {
 
-    idMateria: {
+    idSeleccion: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -22,46 +21,33 @@ module.exports = {
       maxLength: 11
     },
 
-    nombre:{
+  nombre:{
       type:'string',
       required: true,
       size: 25
     },
-
-    codigo:{
+  
+  codigo:{
       type:'string',
       required: true,
       unique: true,
       size: 7
     },
-
-    credito:{
-      type:'int',
+  entrenador:{
+      type:'string',
       required: true,
-      maxLength: 1
-    },
-  
-      /*Colecciones*/
-/*  Referencia seccion - materia (N - 1)*/
-
-    secciones: {
-      collection: 'seccion',
-      via: 'asignatura'
-    },
-
-/*  Referencia carrera - materia (N - M)*/ 
-
-    carreras: {
-      collection: 'carrera',
-      via: 'materias'
+      size: 40
     },   
+    
+/*Colecciones*/ 
 
-/*  Referencia departamento - materia (1 - N)*/
+/* Referencia estudiante - seleccion (N - M) */     
 
-    ofrecida: {
-      model: 'departamento'
-    },
-
+integrantes: {
+  collection: 'estudiante',
+  via: 'selecciones',
+  dominant: true
+  },   
 
   }
 };

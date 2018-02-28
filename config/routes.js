@@ -36,9 +36,9 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'POST /user/registrar': 'UserController.registrar',
-  'GET /user/registrar': {
-    view: 'user/registrar'
+  'POST /usuario/registrar': 'UsuarioController.registrar',
+  'GET /usuario/registrar': {
+    view: 'usuario/registrar'
   }
 
   

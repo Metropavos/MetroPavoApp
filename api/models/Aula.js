@@ -1,5 +1,5 @@
 /**
- * Materia.js
+ * Aula.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -13,7 +13,7 @@ module.exports = {
 
   attributes: {
 
-    idMateria: {
+    idAula: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -22,46 +22,32 @@ module.exports = {
       maxLength: 11
     },
 
-    nombre:{
+  edificio:{
       type:'string',
       required: true,
-      size: 25
-    },
-
-    codigo:{
-      type:'string',
-      required: true,
-      unique: true,
-      size: 7
-    },
-
-    credito:{
-      type:'int',
-      required: true,
-      maxLength: 1
+      size: 5
     },
   
-      /*Colecciones*/
-/*  Referencia seccion - materia (N - 1)*/
-
-    secciones: {
-      collection: 'seccion',
-      via: 'asignatura'
+  piso:{
+      type:'string',
+      required: true,
+      size: 3
     },
+  
+  numero:{
+      type:'int',
+      required: true,
+      maxLength: 3
+    },  
+    
+/*Colecciones*/ 
 
-/*  Referencia carrera - materia (N - M)*/ 
+/* Referencia seccion - aula (N - 1) */     
 
-    carreras: {
-      collection: 'carrera',
-      via: 'materias'
-    },   
-
-/*  Referencia departamento - materia (1 - N)*/
-
-    ofrecida: {
-      model: 'departamento'
-    },
-
+clases: {
+  collection: 'seccion',
+  via: 'salon'
+},
 
   }
 };
