@@ -1,5 +1,5 @@
 /**
- * Profesor.js
+ * Seleccion.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,14 +8,14 @@
 module.exports = {
 
   connection: ' metropavoapp',
-  tableName: 'profesor',
+  tableName: 'seleccion',
 
   createdAt:false,
   updatedAt:false,
 
   attributes: {
 
-    idProfesor: {
+    idSeleccion: {
       type: 'integer',
       required:false,
       autoIncrement: true,
@@ -24,38 +24,33 @@ module.exports = {
       maxLength: 11
     },
 
-    profesion:{
+  nombre:{
       type:'string',
       required: true,
       size: 25
     },
-
-    FechaNacimiento :{
+  
+  codigo:{
       type:'string',
-      required: false,
-      unique: true
+      required: true,
+      unique: true,
+      size: 7
     },
+  entrenador:{
+      type:'string',
+      required: true,
+      size: 40
+    },   
+    
+/*Colecciones*/ 
 
-    /*Colecciones*/
+/* Referencia estudiante - seleccion (N - M) */     
 
-    /* Referencia departamento - profesor (1 - N) */
-
-    adscrito: {
-      model: 'departamento'
-    },
-
-    /* Referencia seccion - profesor  (N - 1) */  
-
-    secciones: {
-      collection: 'seccion',
-      via: 'adscrito'
-    },
-
-    /*Herencia*/
-
-    attachedTo:{
-      model: 'user',
-    }
+integrantes: {
+  collection: 'estudiante',
+  via: 'selecciones',
+  dominant: true
+  },   
 
   }
 };
